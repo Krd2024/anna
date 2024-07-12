@@ -1,0 +1,25 @@
+<!-- pdf_list.html -->
+
+{% extends 'main.html' %}
+
+{% block content %}
+  <h1>Список PDF-документов</h1>
+  <ul>
+    {% for pdf in pdf_list %}
+      <li>
+        {{ pdf.name }}
+        {% comment %}({{ pdf.pdf_file.url }}){% endcomment %}
+        <a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
+      </li>
+    {% empty %}
+      <li>Нет PDF-документов</li>
+    {% endfor %}
+  </ul>
+
+  {% comment %} <h2>Загрузить новый PDF-файл</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить</button>
+  </form> {% endcomment %}
+{% endblock %}

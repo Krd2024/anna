@@ -1,9 +1,25 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext_lazy as _
+from django.core.validators import EmailValidator
+
 
 class User(AbstractUser):
+    email_validator = EmailValidator()
     phone_number = models.CharField(max_length=12)
+    email = models.EmailField(
+        _("email address"),
+        unique=False,
+        blank=False,
+        null=False,
+        validators=[email_validator],
+    )
+
+    # def save(self, *args, **kwargs):
+    #     self.email = self.normalize_email(self.email)
+    #     super().save(*args, **kwargs)
 
 
 class Review(models.Model):
@@ -20,7 +36,52 @@ class Review(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
-    user = models.ForeignKey("User", on_delete=models.CASCADE, verbose_name="Продукт")
+    user = models.ForeignKey(
+        "User", on_delete=models.CASCADE, verbose_name="Ползователь", unique=False
+    )
+
+    class Meta:
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+        ordering = ["-created_at"]
 
     def __str__(self):
         return self.text
+
+
+class PdfModel(models.Model):
+    name = models.TextField(max_length=20)
+    pdf_file = models.FileField(
+        upload_to="pdf_files/", blank=True, null=True, verbose_name="PDF документы"
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Время загрузки файла "
+    )
+
+    class Meta:
+        verbose_name = "Документ"
+        verbose_name_plural = "Документы "
+
+    def __str__(self):
+        return self.pdf_file
+
+
+class Achievement(models.Model):
+    text = models.TextField(verbose_name="Текст")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
+
+    class Meta:
+        verbose_name = "Достижение"
+
+
+from django.db import models
+
+
+class StudentAchievement(models.Model):
+    name = models.CharField(max_length=255, verbose_name="Имя ученика")
+    text = models.TextField(verbose_name="Текст достижения")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
+
+    class Meta:
+        verbose_name = "Достижение ученика"
+        verbose_name_plural = "Достижения учеников"

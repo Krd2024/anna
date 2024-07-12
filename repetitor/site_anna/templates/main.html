@@ -15,36 +15,49 @@
         <h2 id="h2-1">Репетитор по русскому языку</h2>
         {% if request.user.is_authenticated %}
           <p id="p-1">Пользователь {{ request.user }}</p>
-          <a href="#" id="p-1">Оставить отзыв</a>
         {% endif %}
+
         <div class="menu">
-          {% comment %} <div>
-            <a href="{% url 'index_ege' %}" class="body-menu-1"><p id="p-1">Подготовка к егэ</p></a>
-          </div> {% endcomment %}
+          <div>
+            <a href="{% url 'index' %}" class="body-menu-2"><p id="p-1">Главная</p></a>
+          </div>
           <div>
             <a href="{% url 'about_me' %}" class="body-menu-2"><p id="p-1">Обо мне</p></a>
           </div>
+
           <div>
             <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Мои преимущества</p></a>
           </div>
           <div>
-            <a href="{% url 'education' %}" class="body-menu-2"><p id="p-3">Обучение</p></a>
+            <a href="{% url 'education' %}" class="body-menu-2"><p id="p-2">Обучение</p></a>
           </div>
           <div>
-            <a href="{% url 'materials' %}" target="_blank" class="body-menu-2"><p id="p-3">Материалы</p></a>
+            <a href="{% url 'pdf_list' %}" target="_blank" class="body-menu-2"><p id="p-3">Материалы</p></a>
           </div>
           <div>
-            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-4">FAQ</p></a>
+            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-3">FAQ</p></a>
           </div>
           <div>
-            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-5">Цены</p></a>
+            <a href="{% url 'review' %}" id="p-4">Отзывы</a>
           </div>
           <div>
-            <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-6">Контакты</p></a>
+            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-4">Цены</p></a>
           </div>
           <div>
-            <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-6">Регистрация</p></a>
+            <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-5">Контакты</p></a>
           </div>
+          <div>
+            <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-5">Регистрация</p></a>
+          </div>
+          {% if request.user.is_authenticated %}
+            <div>
+              <a href="{% url 'logout' %}" class="body-menu-5"><p id="p-6">Выход</p></a>
+            </div>
+          {% else %}
+            <div>
+              <a href="{% url 'login_in' %}" class="body-menu-5"><p id="p-6">Вход</p></a>
+            </div>
+          {% endif %}
         </div>
       </div>
       <div class="content">
@@ -65,11 +78,11 @@
     color: currentColor;
   
     /*
-                                                                                                                                                                                                                                                                                                                          background-image: url('/static/2800367.jpg');
-                                                                                                                                                                                                                                                                                                                          height: fit-content;
-                                                                                                                                                                                                                                                                                                                          background-size: 150vw 170vh;
-                                                                                                                                                                                                                                                                                                                          background-repeat: no-repeat;
-                                                                                                                                                                                                                                                                                                                          */
+                                                                                                                                                                                                                                                                                                                                                                          background-image: url('/static/2800367.jpg');
+                                                                                                                                                                                                                                                                                                                                                                          height: fit-content;
+                                                                                                                                                                                                                                                                                                                                                                          background-size: 150vw 170vh;
+                                                                                                                                                                                                                                                                                                                                                                          background-repeat: no-repeat;
+                                                                                                                                                                                                                                                                                                                                                                          */
   }
   .container {
     display: flex;

@@ -16,7 +16,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,7 +25,7 @@ SECRET_KEY = "django-insecure-!37ouhcue(33c%um5o5bd#hqeb=oeyp_i5dwwjn4gz^^_e_$6p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -130,19 +129,21 @@ if DEBUG:
         "site_anna/static",
     ]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, "apps/static/")
+    STATIC_ROOT = os.path.join(BASE_DIR, "site_anna/static/")
     STATICFILES_FINDERS = (
         "django.contrib.staticfiles.finders.FileSystemFinder",
         "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     )
 STATIC_URL = "static/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AUTH_USER_MODEL = "site_anna.User"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-#
+# -----------------------------------------------------------------------
+
 from decouple import config
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -153,3 +154,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+
+TIME_ZONE = "Europe/Moscow"
+USE_TZ = True

@@ -1,9 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.views import LoginView
 
 from django.shortcuts import render, redirect
 
-from ..forms import UserRegisterForm
+from site_anna.forms import UserRegisterForm
 
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -14,6 +13,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from ..forms import UserRegisterForm
 from site_anna.models import User
+from django.contrib.auth.views import LoginView
 
 
 def signup(request):
@@ -60,32 +60,22 @@ def activate(request, uidb64, token):
 
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
+
+        user.email = ()
         user.save()
         login(request, user)
-        return redirect("main")
+        return redirect("/")
     else:
         return render(request, "email/account_activation_invalid.html")
 
 
 def logoutPage(request):
     logout(request)
-    return redirect("main")
+    return redirect("/")
 
 
 def login_in(request):
     return render(request, "login.html")
-
-
-# def register(request):
-#     if request.method == "POST":
-
-#         form = UserRegisterForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("login_in")
-#     else:
-#         form = UserRegisterForm()
-#     return render(request, "main/register.html", {"form": form})
 
 
 class CustomLoginView(LoginView):
@@ -101,12 +91,13 @@ class CustomLoginView(LoginView):
         user = authenticate(username=username, password=password)
 
         if user is not None:
+            print("user is not None  <<<<<<< ========")
             # Если пользователь существует и аутентификация прошла успешно, войти в систему
             login(request, user)
-            return redirect(
-                # f"/user/{username}"
-                f"/main/"
-            )
+            print("login(request, user)  <<<<<<< ========")
+            return redirect("/")
+            # f"/user/{username}"
+
         else:
             # Если аутентификация не удалась, показать ошибку входа
             return render(

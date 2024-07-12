@@ -1,7 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
+from .models import PdfModel, Review
 from site_anna.forms import ReviewForm
+
+from django.shortcuts import render, redirect
+
+from .forms import ReviewForm
 
 
 def index(request):
@@ -45,14 +50,38 @@ def faq(request):
     return render(request, "faq.html")
 
 
-def create_review(request, product_id):
+def review(request):
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
-            review.product_id = product_id
+            review.user = request.user
             review.save()
-            return redirect("product_detail", product_id=product_id)
+            return redirect("review")  # or whatever URL you want to redirect to
     else:
+        # form = ReviewForm()
+        # return render(request, "test.html", {"form": form})
         form = ReviewForm()
-    return render(request, "reviews/create_review.html", {"form": form})
+        reviews = Review.objects.all()
+        context = {"reviews": reviews, "form": form}
+    return render(request, "review.html", context)
+
+
+def pdf_list(request):
+    pdf_list = PdfModel.objects.all()
+    print("PDF")
+    return render(request, "pdf_list.html", {"pdf_list": pdf_list})
+
+
+# def create_review(request):
+#     if request.method == "POST":
+#         form = ReviewForm(request.POST)
+#         if form.is_valid():
+#             review = form.save(commit=False)
+#             review.user = request.user
+#             review.save()
+#             return redirect("review_list")  # or whatever URL you want to redirect to
+#     else:
+#         form = ReviewForm()
+#     return render(request, "test.html", {"form": form})
+#     # return render(request, "create_review.html", {"form": form})
