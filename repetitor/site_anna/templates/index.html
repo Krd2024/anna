@@ -1,0 +1,38 @@
+<div class="index">
+  <h2 id="h2-2">АННА АЛЕКСАНДРОВНА ДЕМЧЕНКО<br />Репетитор по русскому языку</h2>
+
+  <img id="photo-Anna" src="/static/Anna.jpg" alt="" />
+</div>
+<style>
+  .index {
+    padding: 5vh;
+    display: flex;
+    width: fit-content;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  #photo-Anna {
+    background-size: 10% 10%;
+    border-radius: 150px;
+    width: 100%; /* make the image width 100% of its parent container */
+    height: auto; /* maintain the aspect ratio */
+    max-width: 300px; /* set a maximum width for larger screens */
+  }
+  
+  /* add media query for smaller screens */
+  @media only screen and (max-width: 768px) {
+    #photo-Anna {
+      width: 50%; /* reduce the image width to 50% of its parent container on smaller screens */
+      height: auto;
+      margin-left: -30px; /* add this to center the image horizontally */
+      display: block; /* add this to make the image a block element */
+      text-align: center;
+    }
+    #h2-2 {
+      color: brown;
+      padding: initial;
+      text-align: center;
+      font-size: 30px;
+    }
+  }
+</style>

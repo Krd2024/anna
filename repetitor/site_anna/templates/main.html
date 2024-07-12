@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="include">
+        {% comment %} {% include 'img.html' %} {% endcomment %}
+      </div>
+      <div class="body">
+        <h2 id="h2-1">Репетитор по русскому языку</h2>
+        {% if request.user.is_authenticated %}
+          <p id="p-1">Пользователь {{ request.user }}</p>
+          <a href="#" id="p-1">Оставить отзыв</a>
+        {% endif %}
+        <div class="menu">
+          {% comment %} <div>
+            <a href="{% url 'index_ege' %}" class="body-menu-1"><p id="p-1">Подготовка к егэ</p></a>
+          </div> {% endcomment %}
+          <div>
+            <a href="{% url 'about_me' %}" class="body-menu-2"><p id="p-1">Обо мне</p></a>
+          </div>
+          <div>
+            <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Мои преимущества</p></a>
+          </div>
+          <div>
+            <a href="{% url 'education' %}" class="body-menu-2"><p id="p-3">Обучение</p></a>
+          </div>
+          <div>
+            <a href="{% url 'materials' %}" target="_blank" class="body-menu-2"><p id="p-3">Материалы</p></a>
+          </div>
+          <div>
+            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-4">FAQ</p></a>
+          </div>
+          <div>
+            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-5">Цены</p></a>
+          </div>
+          <div>
+            <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-6">Контакты</p></a>
+          </div>
+          <div>
+            <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-6">Регистрация</p></a>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        {% block content %}
+          {% include 'index.html' %}
+        {% endblock %}
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+  .content {
+    padding: 2vh;
+    width: 50vw;
+    font-size: 1em;
+    font-weight: 500;
+    height: fit-content;
+    color: currentColor;
+  
+    /*
+                                                                                                                                                                                                                                                                                                                          background-image: url('/static/2800367.jpg');
+                                                                                                                                                                                                                                                                                                                          height: fit-content;
+                                                                                                                                                                                                                                                                                                                          background-size: 150vw 170vh;
+                                                                                                                                                                                                                                                                                                                          background-repeat: no-repeat;
+                                                                                                                                                                                                                                                                                                                          */
+  }
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+  
+    width: 100vw;
+    height: 99vh;
+  }
+  @media only screen and (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+    font-size: ;
+  }
+  a:hover {
+    color: red; /* change the color to red when hovered over */
+  }
+  #h2-1 {
+    margin: 0;
+  
+    padding: 1vw;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  body {
+    margin: 0;
+    margin: 0;
+    background-color: bisque;
+    background-image: url('/static/blocknote.jpg');
+  
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-position: center top;
+  }
+  .body {
+    background-image: url('/static/main.jpg');
+    background-size: 30vw 100vh;
+    width: 30vw;
+  }
+  #p-1 {
+    margin-left: 9vw;
+  }
+  #p-2 {
+    margin-left: 10vw;
+  }
+  #p-3 {
+    margin-left: 11vw;
+  }
+  #p-4 {
+    margin-left: 12vw;
+  }
+  #p-5 {
+    margin-left: 13vw;
+  }
+  #p-6 {
+    margin-left: 15vw;
+  }
+  /* On screens smaller than 768px*/
+  @media (max-width: 768px) {
+    .content {
+      font-size: 30px;
+      padding: 15vw;
+    }
+    a {
+      font-size: 20px;
+    }
+    .body {
+      margin-bottom: 0;
+      background-size: 100vw 70vh;
+      width: 100vw;
+      height: 70vh;
+      background-repeat: no-repeat;
+    }
+    #p-1 {
+      margin-left: 15vh;
+    }
+    #p-2 {
+      margin-left: 17vh;
+    }
+    #p-3 {
+      margin-left: 19vh;
+    }
+    #p-4 {
+      margin-left: 21vh;
+    }
+    #p-5 {
+      margin-left: 23vh;
+    }
+    #p-6 {
+      margin-left: 25vh;
+    }
+  }
+  
+  /* On screens smaller than 480px */
+  @media (max-width: 480px) {
+    .content {
+      font-size: 25px;
+      padding: 15vw;
+    }
+    .body {
+      margin-bottom: 0;
+      background-size: 100vw 100vh;
+      width: 100%;
+      height: 100vh;
+    }
+    #p-1 {
+      margin-left: 0;
+    }
+    a {
+      font-size: x-large;
+    }
+    #h2-1 {
+      margin: 0;
+    }
+    #p-1 {
+      margin-left: 9vh;
+    }
+    #p-2 {
+      margin-left: 11vh;
+    }
+    #p-3 {
+      margin-left: 13vh;
+    }
+    #p-4 {
+      margin-left: 15vh;
+    }
+    #p-5 {
+      margin-left: 17vh;
+    }
+    #p-6 {
+      margin-left: 17vh;
+    }
+  }
+</style>
