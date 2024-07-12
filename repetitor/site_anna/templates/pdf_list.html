@@ -1,14 +1,14 @@
 <!-- pdf_list.html -->
 
 {% extends 'main.html' %}
-
 {% block content %}
-  <h1>Список PDF-документов</h1>
+  <h3>Список PDF-документов</h3>
   <ul>
     {% for pdf in pdf_list %}
       <li>
         {{ pdf.name }}
         {% comment %}({{ pdf.pdf_file.url }}){% endcomment %}
+        {% comment %} <a href="{{ pdf.pdf_file.url }}download">Скачать</a> {% endcomment %}
         <a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
       </li>
     {% empty %}
