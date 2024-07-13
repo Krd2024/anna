@@ -11,10 +11,14 @@ urlpatterns = [
     path("about_me/", about_me, name="about_me"),
     path("advantages/", advantages, name="advantages"),
     path("education/", education, name="education"),
+    #
+    path("education_photo/", education_photo, name="education_photo"),
+    #
     path("contact/", contact, name="contact"),
     path("materials/", materials, name="materials"),
     path("price/", price, name="price"),
     path("faq/", faq, name="faq"),
+    #
     #
     path("review/", review, name="review"),
     #
@@ -26,7 +30,9 @@ urlpatterns = [
     ),
     path("activate/<uidb64>/<token>/", auth_user_view.activate, name="activate"),
     #
+    #
     path("pdf/", pdf_list, name="pdf_list"),
+    #
     #
     path("login_in/", auth_user_view.login_in, name="login_in"),
     path("login/", auth_user_view.CustomLoginView.as_view(), name="login"),

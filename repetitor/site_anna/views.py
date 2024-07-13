@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .models import PdfModel, Review
+from .models import PdfModel, PhotoReview, Review
 from site_anna.forms import ReviewForm
 
 from django.shortcuts import render, redirect
@@ -70,7 +70,13 @@ def review(request):
 def pdf_list(request):
     pdf_list = PdfModel.objects.all()
     print("PDF")
+
     return render(request, "pdf_list.html", {"pdf_list": pdf_list})
+
+
+def education_photo(request):
+    education_photo = PhotoReview.objects.all()
+    return render(request, "education_photo.html", {"education_photo": education_photo})
 
 
 # def create_review(request):

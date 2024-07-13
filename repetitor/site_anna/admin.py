@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # myapp/admin.py
 from django.contrib import admin
-from .models import StudentAchievement, User, Review, PdfModel
+from .models import PhotoReview, StudentAchievement, User, Review, PdfModel
 
 
 class Model_user_admin(admin.ModelAdmin):
@@ -26,7 +26,12 @@ class Model_atudentAchievement_admin(admin.ModelAdmin):
     search_fields = ("username",)
 
 
+class Model_PhotoReview_admin(admin.ModelAdmin):
+    list_display = ("image", "created_at")
+
+
 admin.site.register(PdfModel, Model_pdf_admin)
 admin.site.register(User, Model_user_admin)
 admin.site.register(Review, Model_review_admin)
 admin.site.register(StudentAchievement, Model_atudentAchievement_admin)
+admin.site.register(PhotoReview, Model_PhotoReview_admin)

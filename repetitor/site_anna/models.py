@@ -73,6 +73,20 @@ class Achievement(models.Model):
     class Meta:
         verbose_name = "Достижение"
 
+    # def __str__(self):
+    #     return self.text[:50] + "..."
+
+
+class PhotoReview(models.Model):
+    image = models.ImageField(upload_to="otziv/", verbose_name="Фото отзыва")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
+
+    class Meta:
+        verbose_name_plural = "Фото отзывов"
+
+    def __str__(self):
+        return self.image.url
+
 
 from django.db import models
 

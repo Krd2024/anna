@@ -8,7 +8,6 @@
       <li>
         {{ pdf.name }}
         {% comment %}({{ pdf.pdf_file.url }}){% endcomment %}
-        {% comment %} <a href="{{ pdf.pdf_file.url }}download">Скачать</a> {% endcomment %}
         <a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
       </li>
     {% empty %}
@@ -16,10 +15,26 @@
     {% endfor %}
   </ul>
 
-  {% comment %} <h2>Загрузить новый PDF-файл</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Загрузить</button>
-  </form> {% endcomment %}
+  <!-- Список файлов -->
+  <ul>
+    {% for file in files %}
+      <li>
+        <a href="#" onclick="showFile('{{ file.name }}')">{{ file.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!-- Блок для отображения файла -->
+  {% comment %} <div id="file-block"></div>
+
+  <!-- Кнопка скачивания файла -->
+  <a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
+
+  <!-- JavaScript код -->
+  <script>
+    function showFile(fileName) {
+      // код для отображения файла в блоке #file-block
+      document.getElementById('file-block').innerHTML = 'Файл' + fileName + 'тображается здесь'
+    }
+  </script> {% endcomment %}
 {% endblock %}
