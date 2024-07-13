@@ -119,7 +119,7 @@ DEBUG = True
 if DEBUG:
     ALLOWED_HOSTS = ["127.0.0.1"]
 else:
-    ALLOWED_HOSTS = ["127.0.0.1", "localhost", "127.0.0.1"]
+    ALLOWED_HOSTS = ["31.129.101.152"]
 ...
 STATIC_URL = "/static/"
 if DEBUG:
