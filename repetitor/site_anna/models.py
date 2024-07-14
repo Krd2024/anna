@@ -8,7 +8,7 @@ from django.core.validators import EmailValidator
 
 class User(AbstractUser):
     email_validator = EmailValidator()
-    phone_number = models.CharField(max_length=12)
+    phone_number = models.CharField(max_length=12, blank=True)
     email = models.EmailField(
         _("email address"),
         unique=False,

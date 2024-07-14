@@ -24,17 +24,17 @@
         </div>
         <div class="menu">
           <div>
-            <a href="{% url 'index' %}" class="body-menu-2"><p id="p-1">Главная</p></a>
+            <a href="{% url 'index' %}" class="body-menu-2"><p id="p-2">Главная</p></a>
           </div>
           <div>
-            <a href="{% url 'about_me' %}" class="body-menu-2"><p id="p-1">Обо мне</p></a>
+            <a href="{% url 'about_me' %}" class="body-menu-2"><p id="p-2">Обо мне</p></a>
           </div>
           <div>
-            <a href="{% url 'education_photo' %}" class="body-menu-2"><p id="p-1">Фото-отзыв</p></a>
+            <a href="{% url 'education_photo' %}" class="body-menu-2"><p id="p-2">Галерея</p></a>
           </div>
 
           <div>
-            <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Мои преимущества</p></a>
+            <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Мои преим(Рез)</p></a>
           </div>
           <div>
             <a href="{% url 'education' %}" class="body-menu-2"><p id="p-2">Обучение</p></a>
@@ -43,31 +43,32 @@
             <a href="{% url 'pdf_list' %}" target="_blank" class="body-menu-2"><p id="p-3">Материалы</p></a>
           </div>
           <div>
-            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-3">FAQ</p></a>
+            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-2">FAQ</p></a>
           </div>
           <div>
-            <a href="{% url 'review' %}" id="p-4">Отзывы</a>
+            <a href="{% url 'review' %}" id="p-2">Отзывы</a>
           </div>
           <div>
-            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-4">Цены</p></a>
+            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-2">Цены</p></a>
           </div>
           <div>
-            <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-5">Контакты</p></a>
+            <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-2">Контакты</p></a>
           </div>
           <div>
-            <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-5">Регистрация</p></a>
+            <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-2">Регистрация</p></a>
           </div>
           {% if request.user.is_authenticated %}
             <div>
-              <a href="{% url 'logout' %}" class="body-menu-5"><p id="p-6">Выход</p></a>
+              <a href="{% url 'logout' %}" class="body-menu-5"><p id="p-2">Выход</p></a>
             </div>
           {% else %}
             <div>
-              <a href="{% url 'login_in' %}" class="body-menu-5"><p id="p-6">Вход</p></a>
+              <a href="{% url 'login_in' %}" class="body-menu-5"><p id="p-2">Вход</p></a>
             </div>
           {% endif %}
         </div>
       </div>
+
       <div class="content">
         {% block content %}
           {% include 'index.html' %}
@@ -98,7 +99,7 @@
     background-image: linear-gradient(to bottom, #434a54 10%, #f7f7f7 100%); /* dark grey to light grey gradient */
   }
   body {
-    background-color: rgba(173, 233, 255, 0.3);
+    background-color: rgba(190, 233, 255, 0.6);
   }
   img {
     padding: 2vh;

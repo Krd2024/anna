@@ -1,39 +1,43 @@
 <div class="index">
-  <h2 id="h2-2">Репетитор по русскому языку</h2>
-  {% comment %} <h2 id="h2-2">АННА АЛЕКСАНДРОВНА ДЕМЧЕНКО<br />Репетитор по русскому языку</h2> {% endcomment %}
-
-  <img id="photo-Anna" src="/static/photo_anna_main.jpg" width="600" alt="" />
+  <img id="photo-Anna" src="/static/photo_anna_main.jpg" alt="" width="400" />
+  <div class="text">
+    <p>Меня зовут Демченко Анна Александровна.</p>
+    <p>
+      Люблю филологию ещё со школьной скамьи, поэтому преподаю русский язык вот уже 20 лет и обучаю своих учеников и студентов качественно, доступно и наглядно! <br />Русский язык изучать интересно и просто, когда понимаешь и когда понимают тебя!
+    </p>
+  </div>
 </div>
 <style>
   .index {
     padding: 5vh;
     display: flex;
-    width: fit-content;
-    flex-direction: column-reverse;
+    flex-direction: row;
     align-items: center;
   }
+  
   #photo-Anna {
-    background-size: 10% 10%;
-    border-radius: 10px;
-    width: 100%; /* make the image width 100% of its parent container */
+    width: 350px; /* set the image width to 150px */
     height: auto; /* maintain the aspect ratio */
-    max-width: 300px; /* set a maximum width for larger screens */
+    border-radius: 10px;
+    margin: 10px;
+  }
+  
+  .text {
+    padding: 20px;
   }
   
   /* add media query for smaller screens */
   @media only screen and (max-width: 768px) {
-    #photo-Anna {
-      width: 50%; /* reduce the image width to 50% of its parent container on smaller screens */
-      height: auto;
-      margin-left: -30px; /* add this to center the image horizontally */
-      display: block; /* add this to make the image a block element */
-      text-align: center;
+    .index {
+      flex-direction: column; /* switch to column layout on smaller screens */
     }
-    #h2-2 {
-      color: brown;
-      padding: initial;
-      text-align: center;
-      font-size: 30px;
+    #photo-Anna {
+      width: 100%; /* set the image width to 100% of its parent container on smaller screens */
+      height: auto;
+      margin: 10px auto; /* center the image horizontally */
+    }
+    .text {
+      padding: 10px;
     }
   }
 </style>
