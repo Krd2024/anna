@@ -12,13 +12,16 @@
         {% comment %} {% include 'img.html' %} {% endcomment %}
       </div>
       <div class="body">
-        <div class="img">
-          <img src="/static/photo_main_logo.jpg" width="100" alt="" />
+        <div class="navbar">
+          <div class="navbar-1">
+            <div class="img">
+              <img src="/static/photo_main_logo.jpg" width="100" alt="" />
+            </div>
+          </div>
+          {% if request.user.is_authenticated %}
+            <p id="p-1">{{ request.user }} Пользователь</p>
+          {% endif %}
         </div>
-        {% if request.user.is_authenticated %}
-          <p id="p-1">Пользователь {{ request.user }}</p>
-        {% endif %}
-
         <div class="menu">
           <div>
             <a href="{% url 'index' %}" class="body-menu-2"><p id="p-1">Главная</p></a>
@@ -74,6 +77,17 @@
   </body>
 </html>
 <style>
+  .navbar-1 {
+    text-align: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #p-1 {
+    padding-left: 1em;
+  }
   .content {
     h2 {
       text-align: center; /* для меню*/
@@ -84,7 +98,7 @@
     background-image: linear-gradient(to bottom, #434a54 10%, #f7f7f7 100%); /* dark grey to light grey gradient */
   }
   body {
-    background-color: #f7f7f7;
+    background-color: rgba(173, 233, 255, 0.6);
   }
   img {
     padding: 2vh;
