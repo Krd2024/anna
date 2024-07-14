@@ -63,7 +63,7 @@ class PdfModel(models.Model):
         verbose_name_plural = "Документы "
 
     def __str__(self):
-        return self.pdf_file
+        return str(self.pdf_file)
 
 
 class Achievement(models.Model):
