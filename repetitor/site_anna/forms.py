@@ -11,7 +11,7 @@ class ReviewForm(forms.ModelForm):
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField(required=False)
+    # email = forms.EmailField(required=False)
 
     class Meta:
         model = User

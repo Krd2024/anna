@@ -3,20 +3,20 @@
 {% extends 'main.html' %}
 
 {% block content %}
-  <h1>Отзывы</h1>
+  <h2>Отзывы</h2>
 
   {% if reviews %}
     <ul>
       {% for review in reviews %}
         <li>
-          <h2>{{ review.rating }} из 5</h2>
+          <h3>{{ review.rating }} из 5</h3>
           <p>{{ review.text }}</p>
           <p>Отзыв оставлен {{ review.user.username }} {{ review.created_at|date:'d.m.Y H:i' }}</p>
         </li>
       {% endfor %}
     </ul>
   {% else %}
-    <p>Нет отзывов</p>
+    <h2>Нет отзывов</h2>
   {% endif %}
 
   {% if user.is_authenticated %}

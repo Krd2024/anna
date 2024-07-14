@@ -12,20 +12,22 @@
         {% comment %} {% include 'img.html' %} {% endcomment %}
       </div>
       <div class="body">
-        <h2 id="h2-1">Репетитор по русскому языку</h2>
+        <div class="img">
+          <img src="/static/photo_main_logo.jpg" width="100" alt="" />
+        </div>
         {% if request.user.is_authenticated %}
           <p id="p-1">Пользователь {{ request.user }}</p>
         {% endif %}
 
         <div class="menu">
           <div>
-            <a href="{% url 'education_photo' %}" class="body-menu-2"><p id="p-1">Фото-отзыв</p></a>
-          </div>
-          <div>
             <a href="{% url 'index' %}" class="body-menu-2"><p id="p-1">Главная</p></a>
           </div>
           <div>
             <a href="{% url 'about_me' %}" class="body-menu-2"><p id="p-1">Обо мне</p></a>
+          </div>
+          <div>
+            <a href="{% url 'education_photo' %}" class="body-menu-2"><p id="p-1">Фото-отзыв</p></a>
           </div>
 
           <div>
@@ -73,151 +75,47 @@
 </html>
 <style>
   .content {
-    padding: 2vh;
-    width: 50vw;
-    font-size: 1em;
-    font-weight: 500;
-    height: fit-content;
-    color: currentColor;
-  }
-  .container {
-    display: flex;
-    flex-wrap: nowrap;
-  
-    width: 100vw;
-    height: 99vh;
-  }
-  @media only screen and (max-width: 768px) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
+    h2 {
+      text-align: center; /* для меню*/
     }
-  }
-  a {
-    text-decoration: none;
-    color: black;
-    font-style: italic;
-    font-size: ;
-  }
-  a:hover {
-    color: red; /* change the color to red when hovered over */
-  }
-  #h2-1 {
-    margin: 0;
-  
-    padding: 1vw;
-    text-align: center;
-    font-style: italic;
-  }
-  
-  body {
-    margin: 0;
-    margin: 0;
-    background-color: bisque;
-    background-image: url('/static/blocknote.jpg');
-  
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    background-position: center top;
   }
   .body {
-    background-image: url('/static/main.jpg');
-    background-size: 30vw 100vh;
-    width: 30vw;
+    background-color: #f7f7f7; /* light grey */
+    background-image: linear-gradient(to bottom, #434a54 10%, #f7f7f7 100%); /* dark grey to light grey gradient */
   }
-  #p-1 {
-    margin-left: 9vw;
+  body {
+    background-color: #f7f7f7;
   }
-  #p-2 {
-    margin-left: 10vw;
+  img {
+    padding: 2vh;
+    border-radius: 50%;
   }
-  #p-3 {
-    margin-left: 11vw;
+  
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.8em; /* use relative units like em or rem */
   }
-  #p-4 {
-    margin-left: 12vw;
-  }
-  #p-5 {
-    margin-left: 13vw;
-  }
-  #p-6 {
-    margin-left: 15vw;
-  }
-  /* On screens smaller than 768px*/
+  
+  /* Add media queries for different screen sizes */
   @media (max-width: 768px) {
-    .content {
-      font-size: 30px;
-      padding: 15vw;
-    }
-    a {
-      font-size: 20px;
-    }
-    .body {
-      margin-bottom: 0;
-      background-size: 100vw 70vh;
-      width: 100vw;
-      height: 70vh;
-      background-repeat: no-repeat;
-    }
-    #p-1 {
-      margin-left: 15vh;
-    }
-    #p-2 {
-      margin-left: 17vh;
-    }
-    #p-3 {
-      margin-left: 19vh;
-    }
-    #p-4 {
-      margin-left: 21vh;
-    }
-    #p-5 {
-      margin-left: 23vh;
-    }
-    #p-6 {
-      margin-left: 25vh;
+    /* tablet and below */
+    .menu {
+      font-size: 1.2em;
     }
   }
   
-  /* On screens smaller than 480px */
   @media (max-width: 480px) {
-    .content {
-      font-size: 25px;
-      padding: 15vw;
+    /* mobile and below */
+    .menu {
+      font-size: 1em;
+      flex-wrap: wrap; /* wrap menu items to the next line on small screens */
     }
-    .body {
-      margin-bottom: 0;
-      background-size: 100vw 100vh;
-      width: 100%;
-      height: 100vh;
-    }
-    #p-1 {
-      margin-left: 0;
-    }
-    a {
-      font-size: x-large;
-    }
-    #h2-1 {
-      margin: 0;
-    }
-    #p-1 {
-      margin-left: 9vh;
-    }
-    #p-2 {
-      margin-left: 11vh;
-    }
-    #p-3 {
-      margin-left: 13vh;
-    }
-    #p-4 {
-      margin-left: 15vh;
-    }
-    #p-5 {
-      margin-left: 17vh;
-    }
-    #p-6 {
-      margin-left: 17vh;
+    .img {
+      width: fit-content;
     }
   }
 </style>
+{% comment %}.body { /* light grey */ background-image: linear-gradient(to bottom, #455a64, #c5c5ca, #c5c5ca, #f7f7f7); /* soft navy gradient */ }{% endcomment %}

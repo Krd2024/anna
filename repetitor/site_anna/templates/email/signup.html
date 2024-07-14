@@ -1,6 +1,6 @@
 {% extends 'main.html' %}
 {% block content %}
-  <div class="email">
+  <div class="user-register-form">
     <h2>Sign Up</h2>
     <form method="post">
       {% csrf_token %}
@@ -9,16 +9,56 @@
     </form>
   </div>
   <style>
-    .email {
-      padding: 25px;
-      text-align: center;
-      line-height: 2.5;
+    /*
+                             * User Register Form Styles
+                             */
+    
+    .user-register-form {
+      /* Container styles */
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    .button {
-      width: fit-content;
-      padding: 5px;
-      height: 40px;
-      background-color: beige;
+    
+    .user-register-form label {
+      /* Label styles */
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .user-register-form input[type='text'],
+    .user-register-form input[type='email'],
+    .user-register-form input[type='password'] {
+      /* Input field styles */
+      width: 80%;
+      height: 20px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .user-register-form input[type='submit'] {
+      /* Submit button styles */
+      width: 100%;
+      height: 20px;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .user-register-form input[type='submit']:hover {
+      /* Submit button hover styles */
+      background-color: #3e8e41;
     }
   </style>
 {% endblock %}
