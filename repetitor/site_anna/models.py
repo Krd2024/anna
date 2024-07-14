@@ -7,6 +7,7 @@ from django.core.validators import EmailValidator
 
 
 class User(AbstractUser):
+
     email_validator = EmailValidator()
     phone_number = models.CharField(max_length=12, blank=True)
     email = models.EmailField(
@@ -16,6 +17,7 @@ class User(AbstractUser):
         null=False,
         validators=[email_validator],
     )
+    on_the_list = models.BooleanField(default=False)
 
     # def save(self, *args, **kwargs):
     #     self.email = self.normalize_email(self.email)
