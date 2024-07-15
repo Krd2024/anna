@@ -80,11 +80,12 @@ class Achievement(models.Model):
 
 
 class PhotoReview(models.Model):
-    image = models.ImageField(upload_to="otziv/", verbose_name="Фото отзыва")
+    image = models.ImageField(upload_to="photo/", verbose_name="Фото ")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
 
     class Meta:
-        verbose_name_plural = "Фото отзывов"
+        verbose_name = "Фото"
+        verbose_name_plural = "Галерея"
 
     def __str__(self):
         return self.image.url

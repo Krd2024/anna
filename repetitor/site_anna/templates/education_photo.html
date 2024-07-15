@@ -22,6 +22,12 @@
     {% endfor %}
   </div>
   <style>
+    .container_img {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
     .image-block {
       width: 300px;
       transition: transform 0.5s; /* добавляем переход для элементов */
@@ -33,41 +39,32 @@
       width: 50%;
       height: 50%;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 20px;
       transition: transform 0.5s;
     }
     
     .image-block img:hover {
-      transform: scale(2.5) translateX(10%) translateY(0%); /* увеличиваем и центрируем элемент */
+      transform: scale(2.5) translateX(0%) translateY(0%); /* увеличиваем и центрируем элемент */
       z-index: 1; /* чтобы элемент был над другими */
     }
+    
+    /* On screens smaller than 768px */
+    @media (max-width: 768px) {
+      .image-block img:hover {
+        transform: scale(2.5) translateX(10%) translateY(0%); /* увеличиваем и центрируем элемент */
+        z-index: 1;
+      }
+    }
+    
+    /* On screens smaller than 480px */
+    @media (max-width: 480px) {
+      .container_img {
+        display: block;
+      }
+      .image-block img:hover {
+        transform: scale(2.5) translateX(10%) translateY(0%); /* увеличиваем и центрируем элемент */
+        z-index: 1;
+      }
+    }
   </style>
-
-  {% comment %} <div class="conteiner">
-    {% for img in education_photo %}
-      <div class="image-block">
-        <img src="{{ img }}" alt="" width="100" />
-      </div>
-    {% endfor %}
-  </div>
-  <style>
-    .image-block {
-      position: fixed; /* фиксируем позицию блока */
-      top: 50%; /* центрируем по вертикали */
-      left: 50%; /* центрируем по горизонтали */
-      transform: translate(-50%, -50%); /* корректируем позицию */
-      z-index: 1; /* выводим на передний план */
-    }
-    
-    .image-block img {
-      width: 100%; /* ширина изображения */
-      height: 100%; /* высота изображения */
-      object-fit: cover; /* масштабируем изображение */
-      border-radius: 10px; /* радиус скругления углов */
-    }
-    
-    .image-block:hover {
-      transform: scale(3) translate(-50%, -50%); /* масштабируем и центрируем */
-    }
-  </style> {% endcomment %}
 {% endblock %}
