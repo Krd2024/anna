@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .models import PdfModel, PhotoReview, Review
+from .models import PdfModel, PhotoReview, Review, User
 from site_anna.forms import ReviewForm
 
 from django.shortcuts import render, redirect
@@ -10,8 +10,15 @@ from .forms import ReviewForm
 
 
 def index(request):
-
-    return render(request, "main.html")
+    if request.user.is_authenticated:
+        try:
+            user = User.objects.get(pk=request.user.id)
+            flag = 1 if user.on_the_list else 0
+        except Exception as e:
+            print(e)
+    else:
+        flag = 0
+    return render(request, "main.html", {"flag": flag})
 
 
 def index_ege(request):
@@ -51,6 +58,8 @@ def faq(request):
 
 
 def review(request):
+    """Отзывы"""
+
     if request.method == "POST":
         form = ReviewForm(request.POST)
         if form.is_valid():

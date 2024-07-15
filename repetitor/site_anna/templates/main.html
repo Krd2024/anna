@@ -30,23 +30,24 @@
             <a href="{% url 'about_me' %}" class="body-menu-2"><p id="p-2">Обо мне</p></a>
           </div>
           <div>
-            <a href="{% url 'education_photo' %}" class="body-menu-2"><p id="p-2">Галерея</p></a>
-          </div>
-
-          <div>
-            <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Мои преим(Рез)</p></a>
-          </div>
-          <div>
             <a href="{% url 'education' %}" class="body-menu-2"><p id="p-2">Обучение</p></a>
           </div>
           <div>
-            <a href="{% url 'pdf_list' %}" target="_blank" class="body-menu-2"><p id="p-3">Материалы</p></a>
+            <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Результаты</p></a>
           </div>
+          {% if flag == 1 %}
+            <div>
+              <a href="{% url 'pdf_list' %}" target="_blank" class="body-menu-2"><p id="p-3">Материалы</p></a>
+            </div>
+          {% endif %}
           <div>
-            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-2">FAQ</p></a>
+            <a href="{% url 'education_photo' %}" class="body-menu-2"><p id="p-2">Галерея</p></a>
           </div>
           <div>
             <a href="{% url 'review' %}" id="p-2">Отзывы</a>
+          </div>
+          <div>
+            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-2">FAQ</p></a>
           </div>
           <div>
             <a href="{% url 'price' %}" class="body-menu-4"><p id="p-2">Цены</p></a>
@@ -78,6 +79,9 @@
   </body>
 </html>
 <style>
+  a {
+    text-decoration: none;
+  }
   .navbar-1 {
     text-align: center;
   }
@@ -90,6 +94,8 @@
     padding-left: 1em;
   }
   .content {
+    font-family: Arial, sans-serif; /* Используем Arial как основной шрифт */
+  
     h2 {
       text-align: center; /* для меню*/
     }

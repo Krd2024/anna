@@ -10,6 +10,7 @@ class Model_user_admin(UserAdmin):
 
     list_display = ("username", "email", "phone_number", "on_the_list")
     search_fields = ("username",)
+    list_editable = ("on_the_list", "phone_number")
 
     def get_list_display(self, request):
         return ["username", "email", "phone_number", "on_the_list"]
