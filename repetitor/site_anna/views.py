@@ -58,7 +58,7 @@ def materials(request):
 
 
 def faq(request):
-    return render(request, "faq.html")
+    return render(request, "faq.html", {"flag": flag_user(request)})
 
 
 def review(request):
