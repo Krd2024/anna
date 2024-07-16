@@ -120,7 +120,7 @@ AUTH_USER_MODEL = "site_anna.User"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-DEBUG = True
+DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = ["127.0.0.1"]
 else:
