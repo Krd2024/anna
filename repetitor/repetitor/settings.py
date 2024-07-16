@@ -112,15 +112,16 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "static/"
-MEDIA_URL = "media/"
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "site_anna/media")
 AUTH_USER_MODEL = "site_anna.User"
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = ["127.0.0.1"]
 else:
