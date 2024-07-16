@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .models import PdfModel, PhotoReview, Review, User
+from .models import PdfModel, PhotoReview, Results, Review, User
 from site_anna.forms import ReviewForm
 
 from django.shortcuts import render, redirect
@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from .forms import ReviewForm
 
 
-def index(request):
+def flag_user(request):
     if request.user.is_authenticated:
         try:
             user = User.objects.get(pk=request.user.id)
@@ -18,39 +18,43 @@ def index(request):
             print(e)
     else:
         flag = 0
-    return render(request, "main.html", {"flag": flag})
+    return flag
 
 
-def index_ege(request):
-    return render(request, "ege.html")
+def index(request):
+
+    return render(request, "index.html", {"flag": flag_user(request)})
 
 
 def about_me(request):
-    return render(request, "about_me.html")
+    return render(request, "about_me.html", {"flag": flag_user(request)})
 
 
-def advantages(request):
-    return render(request, "advantages.html")
+def results(request):
+    results = Results.objects.all()
+    return render(
+        request, "results.html", {"flag": flag_user(request), "results": results}
+    )
 
 
 def contact(request):
-    return render(request, "contact.html")
+    return render(request, "contact.html", {"flag": flag_user(request)})
 
 
 def education(request):
-    return render(request, "education.html")
+    return render(request, "education.html", {"flag": flag_user(request)})
 
 
 def price(request):
-    return render(request, "price.html")
+    return render(request, "price.html", {"flag": flag_user(request)})
 
 
 def materials(request):
     return render(request, "materials.html")
 
 
-def materials1(request):
-    return HttpResponse('<script>window.open("/materials/");</script>')
+# def materials1(request):
+#     return HttpResponse('<script>window.open("/materials/");</script>')
 
 
 def faq(request):
@@ -72,20 +76,23 @@ def review(request):
         # return render(request, "test.html", {"form": form})
         form = ReviewForm()
         reviews = Review.objects.all()
-        context = {"reviews": reviews, "form": form}
+        context = {"reviews": reviews, "form": form, "flag": flag_user(request)}
     return render(request, "review.html", context)
 
 
 def pdf_list(request):
     pdf_list = PdfModel.objects.all()
-    print("PDF")
 
     return render(request, "pdf_list.html", {"pdf_list": pdf_list})
 
 
 def education_photo(request):
     education_photo = PhotoReview.objects.all()
-    return render(request, "education_photo.html", {"education_photo": education_photo})
+    return render(
+        request,
+        "education_photo.html",
+        {"education_photo": education_photo, "flag": flag_user(request)},
+    )
 
 
 # def create_review(request):

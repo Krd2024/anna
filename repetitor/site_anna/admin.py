@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import PhotoReview, StudentAchievement, User, Review, PdfModel
+from .models import PhotoReview, Results, StudentAchievement, User, Review, PdfModel
 from django.contrib.auth.admin import UserAdmin
 
 
@@ -34,8 +34,14 @@ class Model_PhotoReview_admin(admin.ModelAdmin):
     list_display = ("image", "created_at")
 
 
+class Model_resusultsPdf_admin(admin.ModelAdmin):
+    list_display = ("name", "pdf_file_results", "created_at")
+    search_fields = ("name",)
+
+
 admin.site.register(User, Model_user_admin)
 admin.site.register(PdfModel, Model_pdf_admin)
 admin.site.register(Review, Model_review_admin)
 admin.site.register(StudentAchievement, Model_atudentAchievement_admin)
 admin.site.register(PhotoReview, Model_PhotoReview_admin)
+admin.site.register(Results, Model_resusultsPdf_admin)

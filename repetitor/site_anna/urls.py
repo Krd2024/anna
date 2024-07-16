@@ -1,15 +1,12 @@
 from django.urls import path
 from django.conf.urls import handler404, handler400
-
-# from .views import *
 from .views import *
 from .auth import auth_user_view
 
 urlpatterns = [
     path("", index, name="index"),
-    path("ege/", index_ege, name="index_ege"),
     path("about_me/", about_me, name="about_me"),
-    path("advantages/", advantages, name="advantages"),
+    path("advantages/", results, name="results"),
     path("education/", education, name="education"),
     #
     path("education_photo/", education_photo, name="education_photo"),

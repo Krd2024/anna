@@ -1,6 +1,12 @@
 {% extends 'main.html' %}
 {% block content %}
-  <div>
+  {% for res in results %}
+    <p>
+      <a href="{{ res.pdf_file_results.url }}">{{ res.name }}</a>
+    </p>
+  {% endfor %}
+
+  {% comment %} <div>
     <h2>ПРЕИМУЩЕСТВА РАБОТЫ СО МНОЙ</h2>
     <ul>
       <li>
@@ -31,5 +37,8 @@
         <p>➢ Если ученик еще не определился с вузом или будущей профессией, то дополнительно смогу провести тестирование на профессиональное определение. Я работала специалистом по трудоустройству в вузе и помогала студентам и выпускникам найти работу своей мечты.</p>
       </li>
     </ul>
-  </div>
+  </div> {% endcomment %}
 {% endblock %}
+{% comment %} {% block results_data %}
+
+{% endblock %} {% endcomment %}

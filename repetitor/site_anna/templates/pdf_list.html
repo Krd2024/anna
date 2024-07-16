@@ -1,40 +1,36 @@
-<!-- pdf_list.html -->
-
 {% extends 'main.html' %}
 {% block content %}
-  <h3>Список PDF-документов</h3>
+  <h3>Список материалов</h3>
   <ul>
     {% for pdf in pdf_list %}
       <li>
-        {{ pdf.name }}
-        {% comment %}({{ pdf.pdf_file.url }}){% endcomment %}
-        <a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
+        <a href="{{ pdf.pdf_file.url }}">{{ pdf.name }}</a>
       </li>
     {% empty %}
-      <li>Нет PDF-документов</li>
+      <li>Нет материалов</li>
     {% endfor %}
   </ul>
-
-  <!-- Список файлов -->
-  <ul>
-    {% for file in files %}
-      <li>
-        <a href="#" onclick="showFile('{{ file.name }}')">{{ file.name }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <!-- Блок для отображения файла -->
-  {% comment %} <div id="file-block"></div>
-
-  <!-- Кнопка скачивания файла -->
-  <a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
-
-  <!-- JavaScript код -->
-  <script>
-    function showFile(fileName) {
-      // код для отображения файла в блоке #file-block
-      document.getElementById('file-block').innerHTML = 'Файл' + fileName + 'тображается здесь'
-    }
-  </script> {% endcomment %}
 {% endblock %}
+
+<!-- Список файлов -->
+{% comment %} <ul>
+  {% for file in files %}
+    <li>
+      <a href="#" onclick="showFile('{{ file.name }}')">{{ file.name }}</a>
+    </li>
+  {% endfor %}
+</ul> {% endcomment %}
+
+<!-- Блок для отображения файла -->
+{% comment %} <div id="file-block"></div>
+
+<!-- Кнопка скачивания файла -->
+<a href="{{ pdf.pdf_file.url }}" target="_blank">Скачать</a>
+
+<!-- JavaScript код -->
+<script>
+  function showFile(fileName) {
+    // код для отображения файла в блоке #file-block
+    document.getElementById('file-block').innerHTML = 'Файл' + fileName + 'тображается здесь'
+  }
+</script> {% endcomment %}

@@ -45,7 +45,7 @@
             <a href="{% url 'education' %}" class="body-menu-2"><p id="p-2">Обучение</p></a>
           </div>
           <div>
-            <a href="{% url 'advantages' %}" class="body-menu-2"><p id="p-2">Результаты</p></a>
+            <a href="{% url 'results' %}" class="body-menu-2"><p id="p-2">Результаты</p></a>
           </div>
           {% if flag == 1 %}
             <div>
@@ -62,7 +62,7 @@
             <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-2">FAQ</p></a>
           </div>
           <div>
-            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-2">Цены</p></a>
+            <a href="{% url 'price' %}" class="body-menu-4"><p id="p-2">Услуги и цены</p></a>
           </div>
           <div>
             <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-2">Контакты</p></a>
@@ -77,8 +77,11 @@
       </div>
 
       <div class="content">
-        {% include 'index.html' %}
+        {% comment %} {% include 'index.html' %} {% endcomment %}
         {% block content %}
+
+        {% endblock %}
+        {% block results_data %}
 
         {% endblock %}
       </div>
@@ -116,6 +119,7 @@
     background-image: linear-gradient(to bottom, #434a54 10%, #f7f7f7 100%); /* dark grey to light grey gradient */
   }
   body {
+    font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, rgba(190, 233, 255, 0.6), rgba(255, 255, 255, 0.6)); /* Добавляем градиентный фон */
   }
   img {
