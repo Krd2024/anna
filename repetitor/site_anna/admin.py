@@ -1,7 +1,5 @@
 from django.contrib import admin
 
-# myapp/admin.py
-from django.contrib import admin
 from .models import PhotoReview, StudentAchievement, User, Review, PdfModel
 from django.contrib.auth.admin import UserAdmin
 
@@ -12,8 +10,8 @@ class Model_user_admin(UserAdmin):
     search_fields = ("username",)
     list_editable = ("on_the_list", "phone_number")
 
-    def get_list_display(self, request):
-        return ["username", "email", "phone_number", "on_the_list"]
+    # def get_list_display(self, request):
+    #     return ["username", "email", "phone_number", "on_the_list"]
 
 
 class Model_review_admin(admin.ModelAdmin):

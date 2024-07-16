@@ -18,9 +18,21 @@
               <img src="/static/photo_main_logo.jpg" width="100" alt="" />
             </div>
           </div>
-          {% if request.user.is_authenticated %}
-            <p id="p-1">{{ request.user }} Пользователь</p>
-          {% endif %}
+          <div class="navbar-2">
+            {% if request.user.is_authenticated %}
+              <p id="p-1">{{ request.user }}</p>
+              <div>
+                <a href="{% url 'logout' %}" class="body-menu-5"><p id="p-2">Выход</p></a>
+              </div>
+            {% else %}
+              <div>
+                <a href="{% url 'login_in' %}" class="body-menu-5"><p id="p-2">Вход</p></a>
+              </div>
+            {% endif %}
+            <div>
+              <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-2">Регистрация</p></a>
+            </div>
+          </div>
         </div>
         <div class="menu">
           <div>
@@ -55,30 +67,30 @@
           <div>
             <a href="{% url 'contact' %}" class="body-menu-5"><p id="p-2">Контакты</p></a>
           </div>
-          <div>
-            <a href="{% url 'signup' %}" class="body-menu-5"><p id="p-2">Регистрация</p></a>
-          </div>
+
           {% if request.user.is_authenticated %}
-            <div>
-              <a href="{% url 'logout' %}" class="body-menu-5"><p id="p-2">Выход</p></a>
-            </div>
+
           {% else %}
-            <div>
-              <a href="{% url 'login_in' %}" class="body-menu-5"><p id="p-2">Вход</p></a>
-            </div>
+
           {% endif %}
         </div>
       </div>
 
       <div class="content">
+        {% include 'index.html' %}
         {% block content %}
-          {% include 'index.html' %}
+
         {% endblock %}
       </div>
     </div>
   </body>
 </html>
 <style>
+  .navbar-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   a {
     text-decoration: none;
   }
@@ -90,9 +102,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  #p-1 {
-    padding-left: 1em;
-  }
+  
   .content {
     font-family: Arial, sans-serif; /* Используем Arial как основной шрифт */
     min-height: 100vh;

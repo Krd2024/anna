@@ -112,6 +112,11 @@ USE_I18N = True
 
 USE_TZ = True
 
+STATIC_URL = "static/"
+MEDIA_URL = "media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "site_anna/media")
+AUTH_USER_MODEL = "site_anna.User"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -121,7 +126,6 @@ if DEBUG:
 else:
     ALLOWED_HOSTS = ["31.129.101.152"]
 ...
-STATIC_URL = "/static/"
 if DEBUG:
     STATIC_DIR = os.path.join(BASE_DIR, "site_anna/static")
     STATICFILES_DIRS = [
@@ -134,9 +138,6 @@ else:
         "django.contrib.staticfiles.finders.FileSystemFinder",
         "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     )
-STATIC_URL = "static/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-AUTH_USER_MODEL = "site_anna.User"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

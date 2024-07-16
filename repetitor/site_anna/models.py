@@ -54,7 +54,7 @@ class Review(models.Model):
 class PdfModel(models.Model):
     name = models.TextField(max_length=20)
     pdf_file = models.FileField(
-        upload_to="pdf_files/", blank=True, null=True, verbose_name="PDF документы"
+        upload_to="document_pdf/", blank=True, null=True, verbose_name="PDF документы"
     )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Время загрузки файла "
@@ -102,3 +102,13 @@ class StudentAchievement(models.Model):
     class Meta:
         verbose_name = "Достижение ученика"
         verbose_name_plural = "Достижения учеников"
+
+
+class Results(models.Model):
+    name = models.TextField(max_length=20)
+    pdf_file_results = models.FileField(
+        upload_to="results_pdf/", blank=True, null=True, verbose_name="PDF документы"
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name="Время загрузки файла "
+    )
