@@ -54,7 +54,10 @@ class Review(models.Model):
 class PdfModel(models.Model):
     name = models.TextField(max_length=20)
     pdf_file = models.FileField(
-        upload_to="document_pdf/", blank=True, null=True, verbose_name="PDF документы"
+        upload_to="document_pdf/",
+        blank=True,
+        null=True,
+        verbose_name="PDF документы",
     )
     created_at = models.DateTimeField(
         auto_now_add=True, verbose_name="Время загрузки файла "

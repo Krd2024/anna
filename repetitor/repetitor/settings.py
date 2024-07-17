@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -112,29 +113,26 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
+STATIC_URL = "static/"
+MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 AUTH_USER_MODEL = "site_anna.User"
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 if DEBUG:
     ALLOWED_HOSTS = ["127.0.0.1"]
 else:
-    ALLOWED_HOSTS = ["31.129.101.152"]
+    ALLOWED_HOSTS = ["31.129.101.152", "127.0.0.1"]
 ...
 if DEBUG:
-    STATIC_DIR = os.path.join(BASE_DIR, "site_anna/static")
-    STATICFILES_DIRS = [
-        STATIC_DIR,
-        "site_anna/static",
-    ]
+    STATIC_DIR = os.path.join(BASE_DIR, "site_anna", "static")
+    STATICFILES_DIRS = [STATIC_DIR, "site_anna", "static"]
 else:
-    STATIC_ROOT = os.path.join(BASE_DIR, "site_anna/static/")
+    STATIC_ROOT = os.path.join(BASE_DIR, "site_anna", "static")
     STATICFILES_FINDERS = (
         "django.contrib.staticfiles.finders.FileSystemFinder",
         "django.contrib.staticfiles.finders.AppDirectoriesFinder",
