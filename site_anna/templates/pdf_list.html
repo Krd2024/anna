@@ -4,13 +4,24 @@
   <ul>
     {% for pdf in pdf_list %}
       <li>
-        <a href="{{ pdf.pdf_file.url }}">{{ pdf.name }}</a>
-        {% comment %} <a href="{{ MEDIA_URL }}document_pdf/Primer_dogovora.pdf">Скачать PDF</a> {% endcomment %}
+        <div id="li">
+          <h4><a href="{{ pdf.pdf_file.url }}">{{ pdf.name }}</a></h4>
+          {% comment %} <a href="{{ MEDIA_URL }}document_pdf/Primer_dogovora.pdf">Скачать PDF</a> {% endcomment %}
+        </div>
       </li>
     {% empty %}
       <li>Нет материалов</li>
     {% endfor %}
   </ul>
+  <style>
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: darkblue;
+    }
+  </style>
 {% endblock %}
 
 <!-- Список файлов -->

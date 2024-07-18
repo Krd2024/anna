@@ -108,7 +108,7 @@ class StudentAchievement(models.Model):
 
 
 class Results(models.Model):
-    name = models.TextField(max_length=20)
+    name = models.TextField(max_length=50)
     pdf_file_results = models.FileField(
         upload_to="results_pdf/",
         blank=True,

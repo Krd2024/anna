@@ -1,11 +1,28 @@
 {% extends 'main.html' %}
 {% block content %}
   {% for res in results %}
-    <p>
+    <p class="p_results">
       <a href="{{ res.pdf_file_results.url }}">{{ res.name }}</a>
     </p>
   {% endfor %}
-
+  <style>
+    a {
+      color: blue;
+      text-decoration: underline;
+    }
+    a:hover {
+      color: darkblue;
+    }
+    .p_results {
+      border-radius: 4px;
+      padding: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+    .p_results:hover {
+      padding: 7px;
+      box-shadow: 0 6px 9px rgba(0, 0, 0, 0.8);
+    }
+  </style>
   {% comment %} <div>
     <h2>ПРЕИМУЩЕСТВА РАБОТЫ СО МНОЙ</h2>
     <ul>
