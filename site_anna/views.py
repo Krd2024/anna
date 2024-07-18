@@ -83,7 +83,9 @@ def review(request):
 def pdf_list(request):
     pdf_list = PdfModel.objects.all()
 
-    return render(request, "pdf_list.html", {"pdf_list": pdf_list})
+    return render(
+        request, "pdf_list.html", {"pdf_list": pdf_list, "flag": flag_user(request)}
+    )
 
 
 def education_photo(request):

@@ -98,13 +98,20 @@
 <style>
   
   .dropbtn {
-    border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.6);
+
+  margin: 5px;
+  border-radius: 3px;
   background-color: #ddd;
-  color: white;
+  
   padding: 8px;
   font-size: 16px;
   border: none;
-   font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+}
+
+.dropbtn:hover {
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.8);
 }
   /* Контейнер <div> - необходим для размещения выпадающего содержимого */
   .dropdown {
@@ -152,6 +159,7 @@
 
   a {
     text-decoration: none;
+    color: black;
   }
 
   .navbar-1 {
@@ -167,10 +175,14 @@
   .content {
     font-family: Arial, sans-serif; /* Используем Arial как основной шрифт */
     min-height: 100vh;
+    
+      padding-right: 40px;
+    
   }
 
   .content h2 {
     text-align: center; /* для меню */
+    
   }
 
   .body {
@@ -202,17 +214,30 @@
     .menu {
       font-size: 1.2em;
     }
+    .content{
+      padding-right: 30px;
+    }
   }
 
   @media (max-width: 480px) {
     /* mobile and below */
     .menu {
+      display: flex;
+    font-size: 0.8em;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: stretch;
+    
       font-size: 1em;
       flex-wrap: wrap; /* wrap menu items to the next line on small screens */
     }
     .img {
       width: fit-content;
     }
+    .content{
+      padding-right: 30px;
+    }
+
   }
 </style>
 
