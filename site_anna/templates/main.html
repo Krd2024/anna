@@ -98,6 +98,7 @@
 <style>
   
   .dropbtn {
+    text-align: center;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.6);
 
   margin: 5px;
@@ -108,6 +109,7 @@
   font-size: 16px;
   border: none;
   font-family: Arial, sans-serif;
+   flex: 1 1 auto;
 }
 
 .dropbtn:hover {
@@ -154,7 +156,8 @@
   /* ----------------------------------------------------------------- */
   .navbar-2 {
     display: flex;
-        flex-direction: row;
+    flex-direction: row;
+    margin-right: 1vh;
   }
 
   a {
@@ -209,10 +212,13 @@
   }
 
   /* Add media queries for different screen sizes */
-  @media (max-width: 1150px) {
+  @media (max-width: 915px) {
     /* tablet and below */
     .menu {
       font-size: 1.2em;
+      flex-direction: column;
+    align-content: flex-start;
+    align-items: stretch;
     }
     .content{
       padding-right: 30px;
@@ -222,7 +228,7 @@
   @media (max-width: 480px) {
     /* mobile and below */
     .menu {
-      display: flex;
+    display: flex;
     font-size: 0.8em;
     flex-direction: column;
     align-content: flex-start;
@@ -239,6 +245,40 @@
     }
 
   }
+
+  {% comment %}  {% endcomment %}
+  {% comment %} .dropbtn {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            
+            border: none;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        .dropbtn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.3s ease;
+        }
+        .dropbtn:hover::before {
+            left: 100%;
+        }
+        .dropbtn:hover {
+          
+            background-color: #003390;
+            
+        } {% endcomment %}
 </style>
 
 {% comment %}.body { /* light grey */ background-image: linear-gradient(to bottom, #455a64, #c5c5ca, #c5c5ca, #f7f7f7); /* soft navy gradient */ }{% endcomment %}
