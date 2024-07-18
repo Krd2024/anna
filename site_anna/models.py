@@ -123,3 +123,6 @@ class Results(models.Model):
         verbose_name = "Результат"
         verbose_name_plural = "Результаты"
         ordering = ["-created_at"]
+
+    def __str__(self):
+        return self.name

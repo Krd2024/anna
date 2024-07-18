@@ -14,22 +14,32 @@
       justify-content: space-around;
     }
   </style> {% endcomment %}
-  <div class="container_img">
-    {% for img in education_photo %}
-      <div class="image-block">
-        <img src="{{ img }}" width="200" alt="" />
-      </div>
-    {% endfor %}
+  <div class="box">
+    <div class="container_img">
+      {% for img in education_photo %}
+        <div class="image-block">
+          <img src="{{ img }}" width="100" alt="" />
+        </div>
+      {% endfor %}
+    </div>
   </div>
   <style>
+    .box {
+      margin-top: 5vw;
+      justify-content: center;
+      display: flex;
+    }
     .container_img {
+      width: 80vw;
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
     }
     .image-block {
-      width: 30vh;
+      margin: 20px;
+      width: 20vh;
       transition: transform 0.5s; /* добавляем переход для элементов */
     
       text-align: center;
@@ -39,19 +49,19 @@
       width: 80%;
       height: 80%;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: 10px;
       transition: transform 0.5s;
     }
     
     .image-block img:hover {
-      transform: scale(2.5) translateX(0%) translateY(0%); /* увеличиваем и центрируем элемент */
+      transform: scale(4) translateX(0%) translateY(0%); /* увеличиваем и центрируем элемент */
       z-index: 1; /* чтобы элемент был над другими */
     }
     
     /* On screens smaller than 768px */
-    @media (max-width: 768px) {
+    @media (max-width: 985px) {
       .image-block img:hover {
-        transform: scale(2.5) translateX(10%) translateY(0%); /* увеличиваем и центрируем элемент */
+        transform: scale(2.5) translateX(0%) translateY(0%); /* увеличиваем и центрируем элемент */
         z-index: 1;
       }
     }
@@ -62,7 +72,7 @@
         display: block;
       }
       .image-block img:hover {
-        transform: scale(2.5) translateX(10%) translateY(0%); /* увеличиваем и центрируем элемент */
+        transform: scale(2.5) translateX(22%) translateY(0%); /* увеличиваем и центрируем элемент */
         z-index: 1;
       }
     }

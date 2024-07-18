@@ -15,8 +15,7 @@
         <div class="navbar">
           <div class="navbar-1">
             <div class="img">
-              <img src="/static/photo_main_logo.jpg" width="100" alt="" />
-            </div>
+              <img src="/static/photo_main_logo.jpg" width="100" class="rounded-img" alt="Logo">            </div>
           </div>
           <div class="navbar-2">
             {% if request.user.is_authenticated %}
@@ -96,6 +95,10 @@
   </body>
 </html>
 <style>
+  .rounded-img {
+    border-radius: 50%;
+    padding: 2vh;
+}
   
   .dropbtn {
     text-align: center;
@@ -198,10 +201,7 @@
     background: linear-gradient(to bottom, rgba(190, 233, 255, 0.6), rgba(255, 255, 255, 0.6)); /* Добавляем градиентный фон */
   }
 
-  img {
-    padding: 2vh;
-    border-radius: 50%;
-  }
+  
 
   .menu {
     display: flex;
@@ -212,7 +212,7 @@
   }
 
   /* Add media queries for different screen sizes */
-  @media (max-width: 915px) {
+  @media (max-width: 940px) {
     /* tablet and below */
     .menu {
       font-size: 1.2em;
@@ -237,9 +237,7 @@
       font-size: 1em;
       flex-wrap: wrap; /* wrap menu items to the next line on small screens */
     }
-    .img {
-      width: fit-content;
-    }
+    
     .content{
       padding-right: 30px;
     }
