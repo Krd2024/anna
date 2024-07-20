@@ -4,6 +4,20 @@
 
   <title>Услуги и цены</title>
   <style>
+    h1 {
+      text-align: center !important;
+      text-decoration: underline;
+    }
+    a {
+      color: #0056b3 !important;
+    
+      transition: color 0.5s, border-bottom 0.3s;
+    }
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline; /* Подчеркивание при наведении */
+      /* Подчеркивание цветом при наведении */
+    }
     body {
       font-family: Arial, sans-serif;
     }
@@ -99,16 +113,25 @@
       </li>
     </ul>
   </section>
-  <style>
-    a {
-      color: #0056b3 !important;
-    
-      transition: color 0.5s, border-bottom 0.3s;
-    }
-    a:hover {
-      color: #0056b3;
-      text-decoration: underline; /* Подчеркивание при наведении */
-      /* Подчеркивание цветом при наведении */
-    }
-  </style>
+  <section>
+    <h1>Консультации</h1>
+
+    <h2>Разовые консультации перед экзаменом</h2>
+
+    <ul>
+      <li>
+        <strong>ОГЭ по русскому языку</strong>: 2500 ₽ / 60 минут
+      </li>
+      <li>
+        <strong>ЕГЭ по русскому языку</strong>: 3000 ₽ / 90 минут
+      </li>
+      <li>
+        <strong>ДВИ по русскому языку</strong>: 3000 ₽ / 90 минут
+      </li>
+    </ul>
+
+    <h2>Консультации по написанию магистерской диссертации</h2>
+
+    <p>Области науки: «Русский язык», «Методика преподавания русского языка» - 3000 ₽ / 60 минут</p>
+  </section>
 {% endblock %}
