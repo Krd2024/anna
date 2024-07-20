@@ -23,7 +23,7 @@ from django.conf import settings
 # urlpatterns = [path("admin/", admin.site.urls)]
 # urlpatterns = [path("admin/", admin.site.urls), path("", include("site_anna.urls"))]
 urlpatterns = [
-    path("admin/", admin.site.urls),  # это строка уже есть
+    path("admin_ya/", admin.site.urls),  # это строка уже есть
     path("", include("site_anna.urls")),
 ]
 if settings.DEBUG:
