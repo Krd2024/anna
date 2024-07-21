@@ -31,9 +31,6 @@
     
     /* add media query for smaller screens */
     @media (max-width: 940px) {
-      .text_ {
-        padding: 20px;
-      }
       .index_ {
         flex-direction: column; /* switch to column layout on smaller screens */
       }
@@ -44,6 +41,19 @@
       }
       .text_ {
         padding: 10px;
+      }
+    }
+    @media (max-width: 480px) {
+      .text_ {
+        padding: 10px;
+      }
+      .index_ {
+        flex-direction: column; /* switch to column layout on smaller screens */
+      }
+      #photo-Anna {
+        width: 100%; /* set the image width to 100% of its parent container on smaller screens */
+        height: auto;
+        margin: 10px auto; /* center the image horizontally */
       }
     }
   </style>
