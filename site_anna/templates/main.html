@@ -54,54 +54,59 @@
             {% endif %}
           </div>
         </div>
-        <div class="menu">
-          <div class="dropbtn">
-            <a href="{% url 'index' %}" >Главная</a>
-          </div>
-          <div class="dropbtn"> 
-            <a href="{% url 'about_me' %}" >Обо мне</a>
-          </div>
-          <div class="dropdown">
-            <div class="dropbtn">Обучение</div>           
-            <div class="dropdown-content">
-              <a href="{% url 'faq' %}">FAQ</a>
-              <a href="{% url 'education' %}">Обучение</a>
-            </div>
-          </div>
-          {% comment %} <div>
-            <a href="{% url 'education' %}" class="body-menu-2"><p id="p-2">Обучение</p></a>
-          </div> {% endcomment %}
-          <div class="dropbtn">
-            <a href="{% url 'results' %}" >Результаты</a>
-          </div>
-          {% if flag == 1 %}
+        <div class="box-menu">
+          <div class="menu">
             <div class="dropbtn">
-              <a href="{% url 'pdf_list' %}" >Материалы</a>
+              <a href="{% url 'index' %}" >Главная</a>
             </div>
-          {% endif %}
-          <div class="dropbtn">
-            <a href="{% url 'education_photo' %}" >Галерея</a>
-          </div>
-          <div class="dropbtn">
-            <a href="{% url 'review' %}">Отзывы</a>
-          </div>
-          {% comment %} <div>
-            <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-2">FAQ</p></a>
-          </div> {% endcomment %}
-          <div class="dropbtn">
-            <a href="{% url 'price' %}">Услуги и цены</a>
-          </div>
-          <div class="dropbtn">
-            <a href="{% url 'contact' %}" >Контакты</a>
-          </div>
+            <div class="dropbtn"> 
+              <a href="{% url 'about_me' %}" >Обо мне</a>
+            </div>
+            <div class="dropdown">
+              <div class="dropbtn">Обучение</div>           
+              <div class="dropdown-content">
+                <a href="{% url 'faq' %}">FAQ</a>
+                <a href="{% url 'education' %}">Обучение</a>
+              </div>
+            </div>
+            {% comment %} <div>
+              <a href="{% url 'education' %}" class="body-menu-2"><p id="p-2">Обучение</p></a>
+            </div> {% endcomment %}
+            <div class="dropbtn">
+              <a href="{% url 'results' %}" >Результаты</a>
+            </div>
+            {% if flag == 1 %}
+              <div class="dropbtn">
+                <a href="{% url 'pdf_list' %}" >Материалы</a>
+              </div>
+            {% endif %}
+            <div class="dropbtn">
+              <a href="{% url 'education_photo' %}" >Галерея</a>
+            </div>
+            <div class="dropbtn">
+              <a href="{% url 'review' %}">Отзывы</a>
+            </div>
+            {% comment %} <div>
+              <a href="{% url 'faq' %}" class="body-menu-3"><p id="p-2">FAQ</p></a>
+            </div> {% endcomment %}
+            <div class="dropbtn">
+              <a href="{% url 'price' %}">Услуги и цены</a>
+            </div>
+            <div class="dropbtn">
+              <a href="{% url 'contact' %}" >Контакты</a>
+            </div>
 
-          {% if request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
 
-          {% else %}
+            {% else %}
 
-          {% endif %}
+            {% endif %}
+          </div>
+          <div class="title-2">САЙТ РЕПЕТИТОРА ПО РУССКОМУ ЯЗЫКУ <br>
+                                    Демченко Анны Александровны </div>
         </div>
       </div>
+      
 
       <div class="content">
         {% comment %} {% include 'index.html' %} {% endcomment %}
@@ -113,9 +118,13 @@
         {% endblock %}
       </div>
     </div>
+    
   </body>
 </html>
 <style>
+  .title-2{
+    display: none;
+  }
     .title{
       font-size: 1.3em 
       text-align: center;
@@ -247,6 +256,24 @@
   /* Add media queries for different screen sizes */
   @media (max-width: 940px) {
     .title{
+      display: none;
+    }
+
+    .box-menu{
+      display: flex;
+      justify-content: space-between;
+        align-items: center
+    }
+    .title-2{
+      margin: 0 auto;
+      font-size: 1.3em 
+      text-align: center;
+      font-family: Arial Black;
+      color:whitesmoke ;
+    display: block;
+   
+  }
+    .title{
       text-align: center;
       margin-bottom: 30px;
       padding: 10px 0;
@@ -257,8 +284,8 @@
     .menu {
       font-size: 1em;
       flex-direction: column;
-    align-content: flex-start;
-    align-items: stretch;
+      align-content: flex-start;
+      align-items: stretch;
     }
     .content{
       padding-right: 30px;
@@ -266,6 +293,24 @@
   }
 
   @media (max-width: 480px) {
+    .title{
+      display: none;
+    }
+
+    .box-menu{
+      display: flex;
+      justify-content: space-between;
+        align-items: center
+    }
+    .title-2{
+      margin: 0 auto;
+      font-size: 1.3em 
+      text-align: center;
+      font-family: Arial Black;
+      color:whitesmoke ;
+    display: block;
+   
+  }
     
     .title{
       text-align: center;
