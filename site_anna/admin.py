@@ -17,6 +17,7 @@ class Model_user_admin(UserAdmin):
 class Model_review_admin(admin.ModelAdmin):
     list_display = ("user", "text", "created_at", "rating")
     search_fields = ("username",)
+    list_editable = ("text", "rating")
 
 
 class Model_pdf_admin(admin.ModelAdmin):

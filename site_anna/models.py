@@ -39,7 +39,9 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
     user = models.ForeignKey(
-        "User", on_delete=models.CASCADE, verbose_name="Ползователь", unique=True
+        "User",
+        on_delete=models.CASCADE,
+        verbose_name="Ползователь",
     )
 
     class Meta:
