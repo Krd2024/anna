@@ -12,7 +12,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=12, blank=True)
     email = models.EmailField(
         _("email address"),
-        unique=False,
+        unique=True,
         blank=False,
         null=False,
         validators=[email_validator],
@@ -39,7 +39,7 @@ class Review(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
     user = models.ForeignKey(
-        "User", on_delete=models.CASCADE, verbose_name="Ползователь", unique=False
+        "User", on_delete=models.CASCADE, verbose_name="Ползователь", unique=True
     )
 
     class Meta:
