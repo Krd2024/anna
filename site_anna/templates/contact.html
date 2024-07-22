@@ -20,25 +20,53 @@
   <div class="social-links">
     <ul>
       <li>
-        <a href="https://t.me/anna_a_demchenko" target="_blank"><i class="fab fa-vk"></i> Для связи в Telegram</a>
+        <a href="https://t.me/anna_a_demchenko" target="_blank"><i class="fab fa-vk"></i> <img src="/static/telega.png" width="50" /></a>
+        {% comment %} <a href="https://t.me/anna_a_demchenko" target="_blank"><i class="fab fa-vk"></i> Для связи в Telegram</a> {% endcomment %}
       </li>
       <li>
-        <a href="https://t.me/lublu_russkij" target="_blank"><i class="lublu_russkij"></i> Telegram-канал «Люблю русский язык!»</a>
+        <a href="https://www.youtube.com/channel/UCmcOyESoBmBP7ajsyH1OC3w" target="_blank"><i class="youtube"></i><img src="/static/youtube.png" width="50" /></a>
       </li>
       <li>
-        <a href="https://www.youtube.com/channel/UCmcOyESoBmBP7ajsyH1OC3w" target="_blank"><i class="youtube"></i>Youtube-канал «Люблю русский язык!»</a>
+        <div class="li">
+          <div>
+            <a href="https://t.me/lublu_russkij" target="_blank"><i class="lublu_russkij"></i> <img src="/static/telega.png" width="50" /></a>
+          </div>
+          <div class="li-2">Канал</div>
+        </div>
+      </li>
+      <li>
+        <a href="#" target="_blank"><i class="youtube"></i> <img src="/static/vk.png" width="50" /></a>
+      </li>
+      <li>
+        <a href="#" target="_blank"><i class="youtube"></i> <img src="/static/dzen.png" width="50" /></a>
       </li>
     </ul>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?v=3&q=55.7558,37.6173&z=27" width="100%" height="60%"></iframe>
+    </div>
   </div>
 
-  <div class="map">
-    <iframe src="https://www.google.com/maps/embed?v=3&q=55.7558,37.6173&z=27" width="30%" height="20%"></iframe>
-  </div>
   <style>
+    .map {
+      margin: 20px 0 0 40px;
+    }
+    .social-links {
+      display: flex;
+    }
+    a {
+      text-decoration: none !important;
+    }
+    .li {
+      display: flex;
+      align-items: center;
+    }
+    ul {
+      list-style-type: none;
+    }
     .social-links,
     .contact-info a {
       color: #007bff;
-      text-decoration: none; /* Убирает подчеркивание по умолчанию */
+      text-decoration: none !; /* Убирает подчеркивание по умолчанию */
       /* Добавляет нижнюю границу */
       transition: color 0.7s, border-bottom 0.3s; /* Плавный переход */
     }
