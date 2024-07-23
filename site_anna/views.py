@@ -92,8 +92,12 @@ def education_photo(request):
     education_photo = PhotoReview.objects.all()
     return render(
         request,
-        "education_photo.html",
-        {"education_photo": education_photo, "flag": flag_user(request)},
+        "education_photo2.html",
+        {
+            "education_photo": education_photo,
+            "flag": flag_user(request),
+            "slide_count": len(education_photo),
+        },
     )
 
 

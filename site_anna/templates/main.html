@@ -27,14 +27,12 @@
   </head>
   <body>
     <div class="container">
-      <div class="include">
-        {% comment %} {% include 'img.html' %} {% endcomment %}
-      </div>
       <div class="body">
         <div class="navbar">
           <div class="navbar-1">
             <div class="img">
-              <img src="/static/photo_main_logo.jpg" width="100" class="rounded-img" alt="Logo">            </div>
+              <img src="/static/photo_main_logo.jpg" width="100" class="rounded-img" alt="Logo">    
+            </div>
             </div>
             <div class="title">САЙТ РЕПЕТИТОРА ПО РУССКОМУ ЯЗЫКУ <br>
                                     Демченко Анны Александровны </div>
@@ -108,8 +106,8 @@
       </div>
       
 
+      {% comment %} {% include 'education_photo2.html' %} {% endcomment %}
       <div class="content">
-        {% comment %} {% include 'index.html' %} {% endcomment %}
         {% block content %}
 
         {% endblock %}
@@ -122,6 +120,9 @@
   </body>
 </html>
 <style>
+  img{
+    width: 100px;
+  }
   .title-2{
     display: none;
   }
