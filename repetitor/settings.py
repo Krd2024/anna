@@ -25,8 +25,8 @@ SECRET_KEY = "django-insecure-!37ouhcue(33c%um5o5bd#hqeb=oeyp_i5dwwjn4gz^^_e_$6p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 # ALLOWED_HOSTS = ["*"]
 
 
@@ -65,6 +65,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                #
+                "site_anna.flag.list_user.flag_user",
             ],
         },
     },
@@ -130,7 +132,7 @@ else:
 ...
 if DEBUG:
     STATIC_DIR = os.path.join(BASE_DIR, "site_anna", "static")
-    STATICFILES_DIRS = [STATIC_DIR, "site_anna", "static"]
+    STATICFILES_DIRS = [STATIC_DIR, "site_anna/static"]
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, "site_anna", "static")
     STATICFILES_FINDERS = (
